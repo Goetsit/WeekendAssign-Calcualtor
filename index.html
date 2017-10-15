@@ -11,25 +11,53 @@
 </head>
 <body>
     <h1>Weekend Two Assignment</h1>
-    <p>Calculator</p>
-    <p>I caluclate things</p>
+    <p>I calculate things</p>
     <div class = "container">
         <div id = "inputDiv">
-        Enter Number: <input type = "number" class = "numberInput" id = "firstNumber"><br>
-        Enter Another Number:  <input type = "number" class = "numberInput" id = "secondNumber">
+        First Number: <span id = "firstNumber"></span><br>
+        Second Number: <span id = "secondNumber"></span>
+
         </div>
         <div id="buttonDiv">
             <button type = "submit" id = "addBtn">Add</button>
             <button type = "submit" id = "subtractBtn">Subtract</button>
             <button type = "submit" id = "divideBtn">Divide</button>
             <button type = "submit" id = "multiplyBtn">Multiply</button>
-            <button type = "submit" id = "clear">Clear All</button>
+            <button type = "submit" id = "clearBtn">Clear All</button>
         </div>    
         <div id = "finalNumber">
 
                 <span id = "span">0</span>
+                <h3 id = "history">History:</h3>
+                <div id="historyDiv"></div>
 
         </div>
+        <div id = "numberBtnsFirst">
+            <h3>First Number</h3>
+            <button class = "numberBtnFirst" id = "btnOneFirst">1</button>
+            <button class = "numberBtnFirst" id = "btnTwoFirst">2</button>
+            <button class = "numberBtnFirst" id = "btnThreeFirst">3</button><br>
+            <button class = "numberBtnFirst" id = "btnFourFirst">4</button>
+            <button class = "numberBtnFirst" id = "btnFiveFirst">5</button>
+            <button class = "numberBtnFirst" id = "btnSixFirst">6</button><br>
+            <button class = "numberBtnFirst" id = "btnSevenFirst">7</button>
+            <button class = "numberBtnFirst" id = "btnEightFirst">8</button>
+            <button class = "numberBtnFirst" id = "btnNineFirst">9</button><br>
+            <button class = "numberBtnFirst" id = "btnZeroFirst">0</button>
+        </div>
+        <div id = "numberBtnsSecond">
+                <h3>Second Number</h3>
+                <button class = "numberBtnSecond" id = "btnOneSecond">1</button>
+                <button class = "numberBtnSecond" id = "btnTwoSecond">2</button>
+                <button class = "numberBtnSecond" id = "btnThreeSecond">3</button><br>
+                <button class = "numberBtnSecond" id = "btnFourSecond">4</button>
+                <button class = "numberBtnSecond" id = "btnFiveSecond">5</button>
+                <button class = "numberBtnSecond" id = "btnSixSecond">6</button><br>
+                <button class = "numberBtnSecond" id = "btnSevenSecond">7</button>
+                <button class = "numberBtnSecond" id = "btnEightSecond">8</button>
+                <button class = "numberBtnSecond" id = "btnNineSecond">9</button><br>
+                <button class = "numberBtnSecond" id = "btnZeroSecond">0</button>
+            </div>
     </div>
 </body>
 </html>
