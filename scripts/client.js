@@ -11,6 +11,7 @@ function readyNow(){
     $('#clearBtn').on('click', clearAll);
     $('.numberBtnFirst').on('click', btnsOne);
     $('.numberBtnSecond').on('click', btnsTwo);
+    $('.clearNumberField').on('click', clearNumberField);
     btnData();
 }//click hanlders
 
@@ -41,7 +42,7 @@ function btnData(){
     $('#btnEightSecond').data({number: 8});
     $('#btnNineSecond').data({number: 9});
     $('#btnZeroSecond').data({number: 0});
-
+    
 }
 
 
@@ -258,6 +259,10 @@ function clearAll(){
     $('#historyDiv').html('');
 }
 
+function clearNumberField(){
+    $('.numberInputs').html('');
+}
+
 /*END CLEARALL*/
 /*BEGIN CALC BUTTONS*/
 
@@ -278,6 +283,8 @@ function btnsTwo(){
     console.log($numberBtnClicked);
 
     $('#secondNumber').append($numberBtnClicked);
+    
 }
 
 /*END CALC BUTTONS*/
+
