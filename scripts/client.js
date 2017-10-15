@@ -8,14 +8,49 @@ function readyNow(){
     $('#subtractBtn').on('click', subtractNumbers)
     $('#divideBtn').on('click', divideNumbers);
     $('#multiplyBtn').on('click', multiplyNumbers);
-    $('#clear').on('click', clearAll);
+    $('#clearBtn').on('click', clearAll);
+    $('.numberBtnFirst').on('click', btnsOne);
+    $('.numberBtnSecond').on('click', btnsTwo);
+    btnData();
 }//click hanlders
+
+function btnData(){
+    $('#addBtn').data({operator: '+'});
+    $('#subtractBtn').data({operator: '-'});
+    $('#multiplyBtn').data({operator: '*'});
+    $('#divideBtn').data({operator: '/'});
+
+    $('#btnOneFirst').data({number: 1});
+    $('#btnTwoFirst').data({number: 2});
+    $('#btnThreeFirst').data({number: 3});
+    $('#btnFourFirst').data({number: 4});
+    $('#btnFiveFirst').data({number: 5});
+    $('#btnSixFirst').data({number: 6});
+    $('#btnSevenFirst').data({number: 7});
+    $('#btnEightFirst').data({number: 8});
+    $('#btnNineFirst').data({number: 9});
+    $('#btnZeroFirst').data({number: 0});
+
+    $('#btnOneSecond').data({number: 1});
+    $('#btnTwoSecond').data({number: 2});
+    $('#btnThreeSecond').data({number: 3});
+    $('#btnFourSecond').data({number: 4});
+    $('#btnFiveSecond').data({number: 5});
+    $('#btnSixSecond').data({number: 6});
+    $('#btnSevenSecond').data({number: 7});
+    $('#btnEightSecond').data({number: 8});
+    $('#btnNineSecond').data({number: 9});
+    $('#btnZeroSecond').data({number: 0});
+
+}
+
 
 /*BEGIN ADD*/ 
 function addNumbers(){
-    var first = parseInt($('#firstNumber').val());
-    var second = parseInt($('#secondNumber').val());
-
+    var first = parseInt($('#firstNumber').html());
+    var second = parseInt($('#secondNumber').html());
+    var operator = $(this).data('operator');
+    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -56,9 +91,10 @@ function getNumbersAdd(){
 /*END ADD*/
 /*BEGIN SUBTRACT*/
 function subtractNumbers(){
-    var first = parseInt($('#firstNumber').val());
-    var second = parseInt($('#secondNumber').val());
-
+    var first = parseInt($('#firstNumber').html());
+    var second = parseInt($('#secondNumber').html());
+    var operator = $(this).data('operator');
+    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -99,9 +135,10 @@ function getNumbersSubtract(){
 
 /* BEGIN DIVIDE */
 function divideNumbers(){
-    var first = parseInt($('#firstNumber').val());
-    var second = parseInt($('#secondNumber').val());
-
+    var first = parseInt($('#firstNumber').html());
+    var second = parseInt($('#secondNumber').html());
+    var operator = $(this).data('operator');
+    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -143,9 +180,10 @@ function getNumbersDivide(){
 /* BEGIN MULTIPLY*/
 
 function multiplyNumbers(){
-    var first = parseInt($('#firstNumber').val());
-    var second = parseInt($('#secondNumber').val());
-
+    var first = parseInt($('#firstNumber').html());
+    var second = parseInt($('#secondNumber').html());
+    var operator = $(this).data('operator');
+    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -189,6 +227,14 @@ function getNumbersMultiplied(){
 
 function appendToDOM(numbers){
 
+    var first = parseInt($('#firstNumber').html());
+    var second = parseInt($('#secondNumber').html());
+    //var operator = ('button').data().operator;
+    var operator = $('button').data('operator');
+
+    console.log('test operator', operator);
+
+
         for(var i = 0; i < numbers.length; i += 1) {
             // Append to the dom
             var numberTest = numbers[i];
@@ -197,14 +243,41 @@ function appendToDOM(numbers){
             console.log(numberTest);
             
         }
+
+        var currentFinal = $('#span').html();
+        $('#historyDiv').append(first + operator + second + '=' + currentFinal + '<br>');
        
 }
 /*END APPEND*/ 
 /* BEGIN CLEAR ALL */
 
 function clearAll(){
-    $('.numberInput').val('');
+    $('#firstNumber').html('');
+    $('#secondNumber').html('');
     $('#span').html(0);
+    $('#historyDiv').html('');
 }
 
 /*END CLEARALL*/
+/*BEGIN CALC BUTTONS*/
+
+function btnsOne(){
+    console.log('btnTest fnct', $(this).html());
+    var $numberBtnClicked = $(this).data().number;
+
+    console.log($numberBtnClicked);
+
+    $('#firstNumber').append($numberBtnClicked);
+}
+
+
+function btnsTwo(){
+    console.log('btnTest fnct', $(this).html());
+    var $numberBtnClicked = $(this).data().number;
+
+    console.log($numberBtnClicked);
+
+    $('#secondNumber').append($numberBtnClicked);
+}
+
+/*END CALC BUTTONS*/
