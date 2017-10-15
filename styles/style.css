@@ -1,5 +1,28 @@
 
+html{
+    background-color: #B8A6C9;
+}
+
 #finalNumber{
     border: 1px solid black;
     border-collapse: collapse;
+    float: right;
+}
+
+#numberBtnsFirst{
+    margin: 10px;
+}
+
+
+#numberBtnsSecond{
+    margin: 10px;
+}
+
+button {
+    border-radius: 8px;
+    background-color: gray;
+    color: white;
+    height: 40px;
+    width: 40px;
+    padding: 2px;
 }
