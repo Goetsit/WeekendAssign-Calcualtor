@@ -9,12 +9,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 var numberArray = [];
 
 /*BEGIN ADD*/ 
+/*TAKES FIRST AND SECOND, PUSHES THE ADDED VARIABLES INTO numberArray*/
 app.post('/add',function(req,res){
    
    var firstNumber = parseInt(req.body.first);
    var secondNumber = parseInt(req.body.second);
-    numberArray.push(firstNumber+secondNumber);
-console.log('testerMctestTest',numberArray);
+   numberArray.push(firstNumber+secondNumber);
    
    res.send(201);
 })
@@ -25,12 +25,12 @@ app.get('/add',function(req,res){
 })
 /*END ADD*/
 /*BEGIN SUBTRACT*/
+/*TAKES FIRST AND SECOND, PUSHES THE SUBTRACTED VARIABLES INTO numberArray*/
 app.post('/subtract',function(req,res){
     
     var firstNumber = parseInt(req.body.first);
     var secondNumber = parseInt(req.body.second);
-     numberArray.push(firstNumber-secondNumber);
- console.log('testerMctestTest',numberArray);
+    numberArray.push(firstNumber-secondNumber);
     
     res.send(201);
  })
@@ -42,12 +42,12 @@ app.post('/subtract',function(req,res){
  
 /*END SUBTRACT*/
 /*BEGIN DIVIDE*/ 
+/*TAKES FIRST AND SECOND, PUSHES THE DIVIDED VARIABLES INTO numberArray*/
 app.post('/divide',function(req,res){
     
     var firstNumber = parseInt(req.body.first);
     var secondNumber = parseInt(req.body.second);
-     numberArray.push(firstNumber/secondNumber);
- console.log('testerMctestTest',numberArray);
+    numberArray.push(firstNumber/secondNumber);
     
     res.send(201);
  })
@@ -59,12 +59,12 @@ app.post('/divide',function(req,res){
 /* END DIVIDE*/
 
 /*BEGIN MULTIPLY*/
+/*TAKES FIRST AND SECOND, PUSHED THE MULTIPLIED VARIABLES INTO numberArray*/
 app.post('/multiply',function(req,res){
     
     var firstNumber = parseInt(req.body.first);
     var secondNumber = parseInt(req.body.second);
-     numberArray.push(firstNumber*secondNumber);
- console.log('testerMctestTest',numberArray);
+    numberArray.push(firstNumber*secondNumber);
     
     res.send(201);
  })
