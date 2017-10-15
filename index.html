@@ -14,20 +14,20 @@
     <p>I calculate things</p>
     <div class = "container">
         <div id = "inputDiv">
-        First Number: <span id = "firstNumber"></span><br>
-        Second Number: <span id = "secondNumber"></span>
+        First Number: <span class = "numberInputs" id = "firstNumber"></span><br>
+        Second Number: <span class = "numberInputs" id = "secondNumber"></span>
 
         </div>
         <div id="buttonDiv">
-            <button type = "submit" id = "addBtn">Add</button>
-            <button type = "submit" id = "subtractBtn">Subtract</button>
-            <button type = "submit" id = "divideBtn">Divide</button>
-            <button type = "submit" id = "multiplyBtn">Multiply</button>
-            <button type = "submit" id = "clearBtn">Clear All</button>
+            <button type = "submit" id = "addBtn">+</button>
+            <button type = "submit" id = "subtractBtn">-</button>
+            <button type = "submit" id = "divideBtn">/</button>
+            <button type = "submit" id = "multiplyBtn">*</button>
+            <button type = "submit" id = "clearBtn">Clear</button>
         </div>    
         <div id = "finalNumber">
 
-                <span id = "span">0</span>
+                <h3>Equals:</h3> <span id = "span">0</span>
                 <h3 id = "history">History:</h3>
                 <div id="historyDiv"></div>
 
@@ -44,6 +44,8 @@
             <button class = "numberBtnFirst" id = "btnEightFirst">8</button>
             <button class = "numberBtnFirst" id = "btnNineFirst">9</button><br>
             <button class = "numberBtnFirst" id = "btnZeroFirst">0</button>
+            <button class = "clearNumberField" id = "btnClearFirst">Clear</button>
+            
         </div>
         <div id = "numberBtnsSecond">
                 <h3>Second Number</h3>
@@ -57,6 +59,7 @@
                 <button class = "numberBtnSecond" id = "btnEightSecond">8</button>
                 <button class = "numberBtnSecond" id = "btnNineSecond">9</button><br>
                 <button class = "numberBtnSecond" id = "btnZeroSecond">0</button>
+                <button class = "clearNumberField" id = "btnClearSecond">Clear</button>
             </div>
     </div>
 </body>
