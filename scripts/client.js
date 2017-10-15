@@ -15,6 +15,8 @@ function readyNow(){
     btnData();
 }//click hanlders
 
+/*BEGIN BTNDATA*/
+/*SETS EACH BUTTON TO HAVE APPROPRIATE NUMBER AND OPERATOR AT PAGE READY*/
 function btnData(){
     $('#addBtn').data({operator: '+'});
     $('#subtractBtn').data({operator: '-'});
@@ -47,11 +49,12 @@ function btnData(){
 
 
 /*BEGIN ADD*/ 
+/*TAKES THE HTML VALUES FOR THE FIRST AND SECOND NUMBERS*/
+/*FIRST USES POST METHOD TO SEND SEPERATE NUMBERS*/
+/*USES GET TO RETRIEVE FINAL CALUCALTED NUMBER*/
 function addNumbers(){
     var first = parseInt($('#firstNumber').html());
     var second = parseInt($('#secondNumber').html());
-    var operator = $(this).data('operator');
-    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -67,8 +70,6 @@ function addNumbers(){
     }).fail(function(message){
         console.log('things broke', first,second);
     })
-console.log(first,second);
-
 
 function getNumbersAdd(){
     $.ajax({
@@ -76,10 +77,6 @@ function getNumbersAdd(){
        url: '/add'
    }).done(function(response){
        var numbersAdded = response;
-
-       console.log('GET returned these numbers',numbersAdded);
-       console.log('addedNumber variable',numbersAdded);
-
        appendToDOM(numbersAdded);
 
     }).fail(function(message){
@@ -91,11 +88,13 @@ function getNumbersAdd(){
 
 /*END ADD*/
 /*BEGIN SUBTRACT*/
+/*TAKES THE HTML VALUES FOR THE FIRST AND SECOND NUMBERS*/
+/*FIRST USES POST METHOD TO SEND SEPERATE NUMBERS*/
+/*USES GET TO RETRIEVE FINAL CALUCALTED NUMBER*/
 function subtractNumbers(){
     var first = parseInt($('#firstNumber').html());
     var second = parseInt($('#secondNumber').html());
-    var operator = $(this).data('operator');
-    console.log(operator);
+
 
     $.ajax({
         method:'POST',
@@ -111,8 +110,6 @@ function subtractNumbers(){
     }).fail(function(message){
         console.log('things broke', first,second);
     })
-console.log(first,second);
-
 
 function getNumbersSubtract(){
     $.ajax({
@@ -120,10 +117,6 @@ function getNumbersSubtract(){
        url: '/subtract'
    }).done(function(response){
        var numbersSubtracted = response;
-
-       console.log('GET returned these numbers',numbersSubtracted);
-       console.log(' variable',numbersSubtracted);
-
        appendToDOM(numbersSubtracted);
 
     }).fail(function(message){
@@ -135,11 +128,12 @@ function getNumbersSubtract(){
 /*END SUBTRACT*/
 
 /* BEGIN DIVIDE */
+/*TAKES THE HTML VALUES FOR THE FIRST AND SECOND NUMBERS*/
+/*FIRST USES POST METHOD TO SEND SEPERATE NUMBERS*/
+/*USES GET TO RETRIEVE FINAL CALUCALTED NUMBER*/
 function divideNumbers(){
     var first = parseInt($('#firstNumber').html());
     var second = parseInt($('#secondNumber').html());
-    var operator = $(this).data('operator');
-    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -155,8 +149,6 @@ function divideNumbers(){
     }).fail(function(message){
         console.log('things broke', first,second);
     })
-console.log(first,second);
-
 
 function getNumbersDivide(){
     $.ajax({
@@ -164,10 +156,6 @@ function getNumbersDivide(){
        url: '/divide'
    }).done(function(response){
        var numbersDivided = response;
-
-       console.log('GET returned these numbers',numbersDivided);
-       console.log('addedNumber variable',numbersDivided);
-
        appendToDOM(numbersDivided);
 
     }).fail(function(message){
@@ -179,12 +167,12 @@ function getNumbersDivide(){
 
  /*END DIVIDE */
 /* BEGIN MULTIPLY*/
-
+/*TAKES THE HTML VALUES FOR THE FIRST AND SECOND NUMBERS*/
+/*FIRST USES POST METHOD TO SEND SEPERATE NUMBERS*/
+/*USES GET TO RETRIEVE FINAL CALUCALTED NUMBER*/
 function multiplyNumbers(){
     var first = parseInt($('#firstNumber').html());
     var second = parseInt($('#secondNumber').html());
-    var operator = $(this).data('operator');
-    console.log(operator);
 
     $.ajax({
         method:'POST',
@@ -200,8 +188,6 @@ function multiplyNumbers(){
     }).fail(function(message){
         console.log('things broke', first,second);
     })
-console.log(first,second);
-
 
 function getNumbersMultiplied(){
     $.ajax({
@@ -209,10 +195,6 @@ function getNumbersMultiplied(){
        url: '/multiply'
    }).done(function(response){
        var numbersMultiplied = response;
-
-       console.log('GET returned these numbers',numbersMultiplied);
-       console.log('addedNumber variable',numbersMultiplied);
-
        appendToDOM(numbersMultiplied);
 
     }).fail(function(message){
@@ -225,33 +207,35 @@ function getNumbersMultiplied(){
 /*END MULTIPLY*/
 
 /* BEGIN appendToDOM */
+/*APPENDS HISTORY AND CALCULATED FINAL NUMBER*/
 
 function appendToDOM(numbers){
+    
+        var first = parseInt($('#firstNumber').html());
+        var second = parseInt($('#secondNumber').html());
+        //var operator = ('button').data().operator;
+        var operator = $('button').data('operator');
+    
+        console.log('test operator', operator);
+    
+    
+            for(var i = 0; i < numbers.length; i += 1) {
+                // Append to the dom
+                var numberTest = numbers[i];
+    
+                $('#span').html(numberTest);
+                console.log(numberTest);
+                
+            }
+    
+            var currentFinal = $('#span').html();
+            $('#historyDiv').append(first + operator + second + '=' + currentFinal + '<br>');
+           
+    }
 
-    var first = parseInt($('#firstNumber').html());
-    var second = parseInt($('#secondNumber').html());
-    //var operator = ('button').data().operator;
-    var operator = $('button').data('operator');
-
-    console.log('test operator', operator);
-
-
-        for(var i = 0; i < numbers.length; i += 1) {
-            // Append to the dom
-            var numberTest = numbers[i];
-
-            $('#span').html(numberTest);
-            console.log(numberTest);
-            
-        }
-
-        var currentFinal = $('#span').html();
-        $('#historyDiv').append(first + operator + second + '=' + currentFinal + '<br>');
-       
-}
 /*END APPEND*/ 
-/* BEGIN CLEAR ALL */
-
+/* BEGIN CLEAR FUNCTIONS */
+/*CLEAR ALL CLEARS INPUTS AND HISTORY/EQUALS SECTION*/
 function clearAll(){
     $('#firstNumber').html('');
     $('#secondNumber').html('');
@@ -259,29 +243,22 @@ function clearAll(){
     $('#historyDiv').html('');
 }
 
+/*CLEAR ON NUMBERPAD CLEARS ONLY THE INPUT FIELDS, NOT HISTORY*/
 function clearNumberField(){
     $('.numberInputs').html('');
 }
 
 /*END CLEARALL*/
 /*BEGIN CALC BUTTONS*/
-
+/*NUMBERPAD BUTTONS*/
 function btnsOne(){
-    console.log('btnTest fnct', $(this).html());
     var $numberBtnClicked = $(this).data().number;
-
-    console.log($numberBtnClicked);
-
     $('#firstNumber').append($numberBtnClicked);
 }
 
 
 function btnsTwo(){
-    console.log('btnTest fnct', $(this).html());
     var $numberBtnClicked = $(this).data().number;
-
-    console.log($numberBtnClicked);
-
     $('#secondNumber').append($numberBtnClicked);
     
 }
