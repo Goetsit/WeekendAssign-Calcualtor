@@ -1,5 +1,5 @@
+
 #finalNumber{
-    height: 200px;
-    width: 200px;
-    background-color: purple;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
